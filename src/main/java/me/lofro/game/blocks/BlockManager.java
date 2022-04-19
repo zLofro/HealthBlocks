@@ -1,12 +1,16 @@
 package me.lofro.game.blocks;
 
 import com.google.common.collect.ImmutableList;
+import eu.decentsoftware.holograms.api.DHAPI;
 import me.lofro.game.BlockHealth;
 import me.lofro.game.blocks.commands.HealthBlockCMD;
 import me.lofro.game.blocks.types.BlockData;
 import me.lofro.game.data.utils.JsonConfig;
 import me.lofro.game.global.interfaces.Restorable;
+import me.lofro.game.global.utils.ChatFormatter;
 import me.lofro.game.global.utils.Commands;
+
+import java.util.List;
 
 public class BlockManager extends Restorable<BlockHealth> {
 
@@ -45,6 +49,12 @@ public class BlockManager extends Restorable<BlockHealth> {
     @Override
     protected void restore(JsonConfig jsonConfig) {
         this.blockData = BlockHealth.gson().fromJson(jsonConfig.getJsonObject(), BlockData.class);
+
+        blockData.healthBlockListValues().forEach(healthBlock -> {
+            List<String> lines = List.of(ChatFormatter.format("&a" + healthBlock.health()));
+
+            DHAPI.createHologram(String.valueOf(healthBlock.getId()), healthBlock.location().clone().add(0.5, 2, 0.5), false, lines);
+        });
     }
 
     @Override

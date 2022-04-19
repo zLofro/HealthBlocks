@@ -5,7 +5,7 @@ import org.bukkit.ChatColor;
 
 public class ChatFormatter {
 
-    public static final String name = ChatFormatter.format("&6Custom&rBlocks");
+    public static final String name = ChatFormatter.format("&cHealth&rBlocks");
     public static final String prefix = ChatFormatter.format(name + " &7>> ");
 
     /**

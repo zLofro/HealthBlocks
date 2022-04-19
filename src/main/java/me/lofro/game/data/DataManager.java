@@ -15,7 +15,7 @@ public class DataManager extends Instantiable<BlockHealth> {
      */
     public DataManager(final BlockHealth instance) throws Exception {
         super(instance);
-        this.blockDataConfig = JsonConfig.cfg("blockDataConfig.json", instance);
+        this.blockDataConfig = JsonConfig.cfg("healthBlockDataConfig.json", instance);
     }
 
     /**

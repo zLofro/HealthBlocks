@@ -28,6 +28,7 @@ repositories {
     maven("https://libraries.minecraft.net/")
     maven("https://plugins.gradle.org/m2")
     maven("https://repo.aikar.co/content/groups/aikar/")
+    maven("https://jitpack.io")
 }
 
 
@@ -38,6 +39,8 @@ dependencies {
 	annotationProcessor("org.projectlombok:lombok:1.18.22")
 	testCompileOnly("org.projectlombok:lombok:1.18.22")
 	testAnnotationProcessor("org.projectlombok:lombok:1.18.22")
+
+    compileOnly("com.github.DecentSoftware-eu:DecentHolograms:2.3.1")
 
     implementation("co.aikar:acf-paper:0.5.0-SNAPSHOT")
 }
@@ -73,4 +76,5 @@ bukkit {
     main = "me.lofro.game.BlockHealth"
     author = "Lofro"
     website = "https://github.com/zLofro"
+    depend = listOf("DecentHolograms")
 }

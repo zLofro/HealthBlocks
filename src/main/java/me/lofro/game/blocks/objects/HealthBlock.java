@@ -1,5 +1,6 @@
 package me.lofro.game.blocks.objects;
 
+import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.Location;
 
@@ -7,8 +8,10 @@ public class HealthBlock {
 
     private @Setter Location location;
     private @Setter int health;
+    private final @Getter int id;
 
-    public HealthBlock(Location location, int health) {
+    public HealthBlock(int id, Location location, int health) {
+        this.id = id;
         this.location = location;
         this.health = health;
     }
