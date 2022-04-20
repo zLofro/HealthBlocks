@@ -14,4 +14,4 @@ pluginManagement {
     }
 }
 
-rootProject.name = "BlockHealth"
+rootProject.name = "HealthBlocks"

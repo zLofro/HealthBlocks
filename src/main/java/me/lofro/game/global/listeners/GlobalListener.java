@@ -5,14 +5,11 @@ import me.lofro.game.blocks.BlockManager;
 import me.lofro.game.blocks.events.HealthBlockAddEvent;
 import me.lofro.game.blocks.events.HealthBlockRemoveEvent;
 import me.lofro.game.global.utils.ChatFormatter;
-import org.bukkit.Bukkit;
-import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.inventory.ItemStack;
 
 import java.util.List;
 
@@ -34,17 +31,19 @@ public record GlobalListener(BlockManager blockManager) implements Listener {
 
             healthBlock.setHealth(healthBlock.health() - 1);
 
-            var hologram = DHAPI.getHologram(String.valueOf(healthBlock.getId()));
-
-            if (hologram == null) return;
-
-            List<String> lines = List.of(ChatFormatter.format("&a" + healthBlock.health()));
-            DHAPI.setHologramLines(hologram, lines);
-
             if (healthBlock.health() == 0) {
-                DHAPI.removeHologram(String.valueOf(healthBlock.getId()));
                 block.breakNaturally(true);
                 blockData.removeHealthBlock(location);
+            }
+
+            var hologram = DHAPI.getHologram(String.valueOf(healthBlock.getId()));
+
+            if (hologram != null) {
+
+                List<String> lines = List.of(ChatFormatter.format("&a" + healthBlock.health()));
+                DHAPI.setHologramLines(hologram, lines);
+
+                if (healthBlock.health() == 0) DHAPI.removeHologram(String.valueOf(healthBlock.getId()));
             }
         }
     }

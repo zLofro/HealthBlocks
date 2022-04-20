@@ -70,10 +70,10 @@ tasks {
 }
 
 bukkit {
-    name = "BlockHealth"
+    name = "HealthBlocks"
     version = "1.0"
     apiVersion = "1.18"
-    main = "me.lofro.game.BlockHealth"
+    main = "me.lofro.game.HealthBlocks"
     author = "Lofro"
     website = "https://github.com/zLofro"
     depend = listOf("DecentHolograms")

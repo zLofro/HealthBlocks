@@ -1,10 +1,10 @@
 package me.lofro.game.data;
 
-import me.lofro.game.BlockHealth;
+import me.lofro.game.HealthBlocks;
 import me.lofro.game.data.utils.JsonConfig;
 import me.lofro.game.global.interfaces.Instantiable;
 
-public class DataManager extends Instantiable<BlockHealth> {
+public class DataManager extends Instantiable<HealthBlocks> {
 
     private final JsonConfig blockDataConfig;
 
@@ -13,7 +13,7 @@ public class DataManager extends Instantiable<BlockHealth> {
      *
      * @param instance The plugin instance.
      */
-    public DataManager(final BlockHealth instance) throws Exception {
+    public DataManager(final HealthBlocks instance) throws Exception {
         super(instance);
         this.blockDataConfig = JsonConfig.cfg("healthBlockDataConfig.json", instance);
     }
