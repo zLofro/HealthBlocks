@@ -76,7 +76,7 @@ public class HealthBlockCMD extends BaseCommand {
             return;
         }
 
-        sender.sendMessage(ChatFormatter.formatWithPrefix("&7La vida del HealthBlock es de &8" + blockData.getHealth(location) + "&7."));
+        sender.sendMessage(ChatFormatter.formatWithPrefix("&7La vida del HealthBlock es de &a" + blockData.getHealth(location) + "&7."));
     }
 
     @Subcommand("setHealth")
@@ -101,7 +101,7 @@ public class HealthBlockCMD extends BaseCommand {
         List<String> lines = List.of(ChatFormatter.format("&a" + healthBlock.health()));
         DHAPI.setHologramLines(hologram, lines);
 
-        sender.sendMessage(ChatFormatter.formatWithPrefix("&7La vida del HealthBlock ha sido actualizada a &8" + health + "&7."));
+        sender.sendMessage(ChatFormatter.formatWithPrefix("&7La vida del HealthBlock ha sido actualizada a &a" + health + "&7."));
     }
 
     /**
