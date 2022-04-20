@@ -76,10 +76,7 @@ public class HealthBlockCMD extends BaseCommand {
             return;
         }
 
-        var exactBlock = blockData.getHealthBlock(location);
-        var health = exactBlock.health();
-
-        sender.sendMessage(ChatFormatter.formatWithPrefix("&7La vida del HealthBlock es de &8" + health + "&7."));
+        sender.sendMessage(ChatFormatter.formatWithPrefix("&7La vida del HealthBlock es de &8" + blockData.getHealth(location) + "&7."));
     }
 
     @Subcommand("setHealth")
@@ -92,9 +89,7 @@ public class HealthBlockCMD extends BaseCommand {
             return;
         }
 
-        var healthBlock = blockData.getHealthBlock(location);
-
-        healthBlock.setHealth(health);
+        var healthBlock = blockData.setHealth(location, health);
 
         var hologram = DHAPI.getHologram(String.valueOf(healthBlock.getId()));
 

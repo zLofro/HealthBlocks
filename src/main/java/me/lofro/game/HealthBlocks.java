@@ -24,9 +24,9 @@ import org.bukkit.plugin.java.JavaPlugin;
  *
  *
  */
-public class BlockHealth extends JavaPlugin {
+public class HealthBlocks extends JavaPlugin {
 
-    private @Getter static BlockHealth instance;
+    private @Getter static HealthBlocks instance;
 
     private static final Gson gson = new GsonBuilder()
             .enableComplexMapKeySerialization()
